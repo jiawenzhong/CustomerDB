@@ -1,0 +1,26 @@
+﻿<Window x:Class="CustomerDB.View.EditView"
+        x:Name="EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomerDB.View"
+        mc:Ignorable="d"
+        Title="Edit Customer Information" Height="300" Width="450">
+    <Grid DataContext="{Binding EditViewModel, Source={StaticResource Locator}}">
+        <Label Content="Name: " HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top"/>
+        <Label Content="Address: " HorizontalAlignment="Left" Margin="26,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="City: " HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top"/>
+        <Label Content="State: " HorizontalAlignment="Left" Margin="26,143,0,0" VerticalAlignment="Top"/>
+        <Label Content="ZipCode: " HorizontalAlignment="Left" Margin="239,140,-6.2,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Height="23" Margin="114,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292"/>
+        <TextBox Text="{Binding Address}" HorizontalAlignment="Left" Height="23" Margin="114,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292"/>
+        <TextBox Text="{Binding City}" HorizontalAlignment="Left" Height="23" Margin="114,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292"/>
+        <ComboBox ItemsSource="{Binding States}" SelectedItem ="{Binding SelectedState}" DisplayMemberPath="StateName" HorizontalAlignment="Left" Margin="114,143,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding ZipCode}" HorizontalAlignment="Left" Height="23" Margin="305,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101"/>
+        <Button Content="Accept" HorizontalAlignment="Left" Margin="114,211,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AcceptCommand}" CommandParameter="{Binding ElementName=EditWindow}"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="239,211,-20.4,0" VerticalAlignment="Top" Width="75" Command="{Binding CancelCommand, Mode=OneWay}" 
+                CommandParameter="{Binding ElementName=EditWindow}" />
+
+    </Grid>
+</Window>

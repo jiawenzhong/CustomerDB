@@ -1,0 +1,31 @@
+﻿<Window x:Class="CustomerDB.MainWindow"
+        x:Name="MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomerDB"
+        mc:Ignorable="d"
+        Title="Customer Information" Height="350" Width="525">
+    <Grid DataContext="{Binding Main, Source={StaticResource Locator}}">
+        <Label Content="Customer ID:" HorizontalAlignment="Left" Margin="27,24,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Name: " HorizontalAlignment="Left" Margin="27,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="Address: " HorizontalAlignment="Left" Margin="27,114,0,0" VerticalAlignment="Top"/>
+        <Label Content="City: " HorizontalAlignment="Left" Margin="27,148,0,0" VerticalAlignment="Top"/>
+        <Label Content="State: " HorizontalAlignment="Left" Margin="27,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="ZipCode: " HorizontalAlignment="Left" Margin="306,182,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding CustomerID, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="123,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Get Customer" HorizontalAlignment="Left" Margin="265,27,0,0" VerticalAlignment="Top" Width="91" Command="{Binding GetCommand}"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="27,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddCommand}"/>
+        <Button IsEnabled ="{Binding ModifyEnable}" Content="Modify" HorizontalAlignment="Left" Margin="143,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding EditCommand}"/>
+        <Button IsEnabled ="{Binding DeleteEnabled}" Content="Delete" HorizontalAlignment="Left" Margin="265,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DeleteCommand}"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="417,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding ExitCommand, Mode=OneWay}" 
+                CommandParameter="{Binding ElementName=MainWindowView}"/>
+        <TextBox IsReadOnly="True" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="123,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369"/>
+        <TextBox IsReadOnly="True" Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="123,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369"/>
+        <TextBox IsReadOnly="True" Text="{Binding City, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="123,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369"/>
+        <TextBox IsReadOnly="True" Text="{Binding StateCode, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="123,185,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <TextBox IsReadOnly="True" Text="{Binding ZipCode, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="372,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
